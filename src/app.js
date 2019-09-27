@@ -28,6 +28,10 @@ app.use(function validateAPIKey(req,res,next) {
   next();
 });
 
+app.get('/',(req,res) => {
+  res.send('you made it here');
+});
+
 app.use('/bookmarks',bookmarkRouter);
 
 app.use((req,res,next) => {
