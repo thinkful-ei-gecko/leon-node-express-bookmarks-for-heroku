@@ -4,24 +4,32 @@ const uuidv4 = require('uuid/v4');
 let bookmarksData = require('../store');
 const logger = require('../logger.js');
 const bodyParser = express.json();
+let bookmarksService = require('./bookmarksService');
 
 
 bookmarkRouter
 
-  .get('/', (req,res) => {
-    logger.info('/GET command successful');
-    res.status(200).json(bookmarksData);
+  .get('/', (req,res,next) => {
+    logger.info('/GET command reached');
+    let db = req.app.get('db');
+    bookmarksService.getBookmarks(db)
+      .then(bookmarks => {
+        res.json(bookmarks);
+      })
+      .catch(next);
   })
 
-  .get('/:id', (req,res) => {
+  .get('/:id', (req,res,next) => {
     let {id} = req.params;
-    let bID = bookmarksData.find(bookmark => bookmark.id === id) || {};
-    if (!bID.id) {
-      logger.error('/GET :id could not find ID');
-      res.status(400).json({error: 'Cannot find that ID'});
-    }
-    logger.info('/GET :id found an ID');
-    res.status(201).json(bID);
+    let db = req.app.get('db');
+    bookmarksService.findById(db,id)
+      .then(bookmark => {
+        logger.info('/GET :id found an ID');
+        res.status(200).json(bookmark);
+      })
+      .catch(next);
+      // logger.error('/GET :id could not find ID');
+      // res.status(400).json({error: 'Cannot find that ID'});
   })
 
   .post('/', bodyParser, (req,res) => {

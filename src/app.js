@@ -5,7 +5,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const bookmarkRouter = require('./bookmark/bookmarkRouter');
-let bookmarksData = require('./store');
 
 const app = express();
 
@@ -26,11 +25,7 @@ app.use(function validateAPIKey(req,res,next) {
     return res.status(401).send('Not authorized');
   }
   next();
-});
-
-app.get('/',(req,res) => {
-  res.send('you made it here');
-});
+}); 
 
 app.use('/bookmarks',bookmarkRouter);
 
@@ -50,4 +45,4 @@ app.use(function errorHandler(error, req, res, next) {
   res.status(500).json(response);
 });
 
-module.exports = app
+module.exports = app;
