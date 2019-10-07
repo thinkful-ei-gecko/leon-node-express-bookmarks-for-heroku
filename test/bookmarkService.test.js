@@ -36,6 +36,8 @@ describe('Bookmarks App',() => {
   });
 
   describe('There is no data in the bookmarks table',() => {
+
+    afterEach(() => db('bookmarks').truncate());
     
     it('getBookmarks() returns an empty array from the bookmarks table',() => {
       bookmarksService.getBookmarks(db)
@@ -44,6 +46,21 @@ describe('Bookmarks App',() => {
         });
 
     });
-  });
 
+    it('addBookmark() adds a bookmark to the bookmarks table', () => {
+      let bookmark = {
+        title: 'This is the new title',
+        url: 'http://testurl.com',
+        rating: 3,
+        id: 7,
+        description: 'This is a description!'
+      };
+      bookmarksService.addBookmark(db,bookmark)
+        .then(bookmark2 => {
+          console.log(bookmark2);
+          expect(bookmark).to.eql(bookmark2);
+        });
+
+    });
+  });
 });

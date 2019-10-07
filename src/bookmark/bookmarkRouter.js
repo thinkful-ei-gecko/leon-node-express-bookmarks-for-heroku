@@ -28,38 +28,45 @@ bookmarkRouter
         res.status(200).json(bookmark);
       })
       .catch(next);
-      // logger.error('/GET :id could not find ID');
-      // res.status(400).json({error: 'Cannot find that ID'});
+    // logger.error('/GET :id could not find ID');
+    // res.status(400).json({error: 'Cannot find that ID'});
   })
 
-  .post('/', bodyParser, (req,res) => {
-    const {title, link, desc, rating } = req.body;
-    if (!title || !link || !desc || !rating ) {
-      logger.error('/POST not completed: missing data');
-      res.status(400).send('Must include all the data: title, link, desc, and rating');
+  .post('/', bodyParser, (req,res,next) => {
+    const {title, url, rating } = req.body;
+    let bookmark = { title, url, rating}
+
+    for (const [key, value] of Object.entries(bookmark)) {
+      if (value === null || !value) {
+        logger.error(`/POST not completed: missing data ${value}`);
+        return res.status(400).json({
+          error: { message: `Missing '${key}' in request body` }
+        });
+      }
     }
-    let bookmark = {
-      title,
-      link,
-      desc,
-      rating: parseInt(rating),
-      id: uuidv4()
-    };
-    bookmarksData.push(bookmark);
+    let newNumber = parseInt(rating);
+    if (typeof newNumber !== 'number' || !newNumber || newNumber < 1 || newNumber > 5) {
+      logger.error('/POST not completed: rating was not correct data');
+      return res.status(400).send('The rating must be a number between 1 and 5');
+    }
     logger.info('/POST created a new bookmark');
-    res.status(201).json(bookmark);
+    bookmarksService.addBookmark(req.app.get('db'),bookmark)
+      .then(bookmarkReturned => 
+        res
+          .status(201)
+          .location(`/bookmarks/${bookmarkReturned.id}`)
+          .json(bookmarkReturned))
+      .catch(next);
   })
 
   .delete('/', bodyParser,(req,res) => {
     const {id} = req.body;
-    if (!bookmarksData.find(bookmark => bookmark.id === id)) {
-      logger.error('/DELETE - Tried to delete an ID but could not find');
-      res.status(400).json({error: 'could not find id'});
-    }
-    bookmarksData = bookmarksData.filter(bookmark => bookmark.id !== id);
-    logger.info(`/DELETE - an item with id ${id}`);
-    res.status(200).json({status: 'deleted'});
-  });
 
+    bookmarksService.findById(req.app.get('db'),id)
+      .then(returned)
+    logger.info(`/DELETE - an item with id ${id}`);
+    res.status(204).json({status: 'deleted'});
+  });
+  logger.error('/DELETE - Tried to delete an ID but could not find');
 
 module.exports = bookmarkRouter;

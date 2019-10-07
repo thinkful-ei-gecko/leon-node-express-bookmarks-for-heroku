@@ -1,25 +1,53 @@
+{"message":"/POST not completed: missing data","level":"error"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST not completed: missing data","level":"error"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
 {"message":"/GET command reached","level":"info"}
 {"message":"/GET command reached","level":"info"}
+{"message":"/POST not completed: missing data","level":"error"}
+{"message":"/POST not completed: rating was not correct data","level":"error"}
+{"message":"/POST not completed: missing data","level":"error"}
+{"message":"/POST not completed: rating was not correct data","level":"error"}
+{"message":"/POST not completed: rating was not correct data","level":"error"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
 {"message":"/GET command reached","level":"info"}
 {"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST not completed: rating was not correct data","level":"error"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
 {"message":"/GET command reached","level":"info"}
 {"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
 {"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
 {"message":"/GET :id found an ID","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
-{"message":"/GET command reached","level":"info"}
 {"message":"/GET :id found an ID","level":"info"}
-{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
 {"message":"/GET :id found an ID","level":"info"}
