@@ -51,3 +51,39 @@
 {"message":"/GET :id found an ID","level":"info"}
 {"message":"/GET :id found an ID","level":"info"}
 {"message":"/GET :id found an ID","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/POST not completed: missing data undefined","level":"error"}
+{"message":"/POST not completed: missing data undefined","level":"error"}
+{"message":"/POST not completed: missing data undefined","level":"error"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/DELETE - an item with id 2","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/DELETE - an item with id 2","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/DELETE - an item with id 2","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/DELETE - an item with id 3","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET command reached","level":"info"}
+{"message":"/GET :id found an ID","level":"info"}
+{"message":"/POST created a new bookmark","level":"info"}
+{"message":"/DELETE - an item with id 1","level":"info"}
+{"message":"/DELETE - Tried to delete an ID but could not find","level":"error"}
+{"message":"/GET command reached","level":"info"}

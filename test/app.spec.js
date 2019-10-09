@@ -74,24 +74,38 @@ describe('Bookmarks Endpoints', () => {
   });
 
   context.only('/DELETE request', () => {
-    beforeEach(() => db.insert(fixtures).into('bookmarks'));
-    afterEach(() => db('bookmarks').truncate());
 
-    it('DELETE bookmarks/id deletes the bookmark',() => {
-      let fakeId = 2;
-      let expectedReturn = fixtures.filter(bookmark => bookmark.id !== fakeId);
+    context('Given there is a bookmark to delete', () => {
+      beforeEach(() => db.insert(fixtures).into('bookmarks'));
+      afterEach(() => db('bookmarks').truncate());
 
-      return supertest(app)
-        .delete(`/bookmarks/${fakeId}`)
-        .set({Authorization:'Bearer 7abf6605-f5f9-454f-8972-1ec4079180ca'})
-        .expect(204)
-        .then(() => {
-          return supertest(app)
-            .get('/bookmarks')
-            .set({Authorization:'Bearer 7abf6605-f5f9-454f-8972-1ec4079180ca'})
-            .expect(200)
-            .expect(res => expect(res).to.eql(expectedReturn));
-        });
+      it('DELETE bookmarks/id deletes the bookmark',() => {
+        let fakeId = 2;
+        let expectedReturn = fixtures.filter(bookmark => bookmark.id !== fakeId);
+
+        return supertest(app)
+          .delete(`/bookmarks/${fakeId}`)
+          .set({Authorization:'Bearer 7abf6605-f5f9-454f-8972-1ec4079180ca'})
+          .expect(204)
+          .then(() => {
+            return supertest(app)
+              .get('/bookmarks')
+              .set({Authorization:'Bearer 7abf6605-f5f9-454f-8972-1ec4079180ca'})
+              .expect(200)
+              .expect(res => expect(res).to.eql(expectedReturn));
+          });
+      });
+    });
+
+    context('Given there are no bookmarks',() => {
+
+      it('responds with a 404', () => {
+        let fakeId = 88;
+        return supertest(app)
+          .delete(`/bookmarks/${fakeId}`)
+          .set({Authorization:'Bearer 7abf6605-f5f9-454f-8972-1ec4079180ca'})
+          .expect(404, { error: { message: `Article doesn't exist` } });
+      });
     });
   });
 });
